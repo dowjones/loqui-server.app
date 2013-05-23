@@ -2,7 +2,7 @@
 var multilevel = require('multilevel')
 var net = require('net')
 var argv = require('optimist').argv
-var levelup = require('level')
+var level = require('level')
 var hooks = require('./lib/level-hooks')
 var deepmerge = require('deepmerge')
 
@@ -24,7 +24,7 @@ var levelopts = {
   encoding: argv.encoding || 'json'
 }
 
-var db = levelup('./db', levelopts)
+var db = level(argv.location || './db', levelopts)
 
 hooks(db)
 
