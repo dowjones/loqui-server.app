@@ -1,0 +1,24 @@
+{
+  "name": "level-hooks",
+  "description": "pre/post hooks for leveldb",
+  "version": "4.1.9",
+  "homepage": "https://github.com/dominictarr/level-hooks",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/level-hooks.git"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://bit.ly/dominictarr)",
+  "dependencies": {
+    "string-range": "~1.2",
+    "lock": "0.0.3"
+  },
+  "devDependencies": {
+    "levelup": "~0.8",
+    "rimraf": "~2.0.2",
+    "macgyver": "~1.9",
+    "range-bucket": "0.0.0"
+  },
+  "scripts": {
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  }
+}

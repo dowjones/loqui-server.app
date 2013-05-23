@@ -1,0 +1,20 @@
+{
+  "name": "loqui-server",
+  "version": "0.0.1",
+  "description": "A logging server",
+  "main": "server",
+  "bin": "server",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "multilevel": "~4.0.2",
+    "level": "~0.8.0",
+    "optimist": "~0.5.0",
+    "deepmerge": "~0.2.5"
+  }
+}

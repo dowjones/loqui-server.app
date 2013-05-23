@@ -1,0 +1,57 @@
+#!/usr/bin/env node
+var multilevel = require('multilevel')
+var net = require('net')
+var argv = require('optimist').argv
+var levelup = require('level')
+var hooks = require('./lib/level-hooks')
+var deepmerge = require('deepmerge')
+
+function merge(a, b) {
+
+  if (typeof a === 'object' && typeof b === 'object') {
+
+    if (a.method === 'counter' && a.value.counter && b.value.counter) {
+      b.value.counter = a.value.counter += b.value.counter
+    }
+    return deepmerge(b, a)
+  }
+  return a
+}
+
+var levelopts = {
+  valueEncoding: argv.valueEncoding || 'json', 
+  keyEncoding: argv.keyEncoding || 'json', 
+  encoding: argv.encoding || 'json'
+}
+
+var db = levelup('./db', levelopts)
+
+hooks(db)
+
+db.hooks.async({ start: '', end: '~' }, function (op, done) {
+  
+  if (op.type === 'put') {
+    db.get(op.key, function (err, value) {
+
+      if (!err) {
+        var method = op.value && op.value.method
+        if (method === 'extend' || method === 'counter') {
+          op.value = merge(op.value, value)
+        }
+        done({ type: 'put', key: op.key, value: op.value})
+      }
+      else {
+        done()
+      }
+
+      server.emit('log', op)
+    })
+  }
+  else {
+    done()
+  }
+})
+
+var server = net.createServer(function (c) {
+  c.pipe(multilevel.server(db)).pipe(c)
+}).listen(argv.port || 9099)
