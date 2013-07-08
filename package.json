@@ -1,20 +1,29 @@
 {
   "name": "loqui-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A logging server",
-  "main": "server",
-  "bin": "server",
+  "main": "lib",
+  "bin": {
+    "server": "./bin/cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dowjones/loqui-server"
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "multilevel": "~4.0.2",
     "level": "~0.8.0",
     "optimist": "~0.5.0",
-    "deepmerge": "~0.2.5"
+    "deepmerge": "~0.2.5",
+    "level-hooks": "~4.1.10"
+  },
+  "devDependencies": {
+    "should": "~1.2.1"
   }
 }
