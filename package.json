@@ -1,6 +1,6 @@
 {
   "name": "loqui-server",
-  "version": "0.0.3",
+  "version": "0.0.4-latest",
   "description": "A logging server",
   "main": "lib",
   "bin": {
