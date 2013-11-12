@@ -1,5 +1,5 @@
 {
-  "name": "loqui-server",
+  "name": "loqui-server.app",
   "version": "0.0.4-latest",
   "description": "A logging server",
   "main": "lib",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dowjones/loqui-server"
+    "url": "https://github.com/dowjones/loqui-server.app"
   },
   "author": "",
   "license": "MIT",
