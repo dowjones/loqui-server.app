@@ -2,13 +2,13 @@
   "name": "loqui-server.app",
   "version": "0.0.5-latest",
   "description": "A logging server",
-  "main": "lib",
+  "main": "bin/cli.js",
   "bin": {
-    "server": "./bin/cli.js"
+    "loqui-server.app": "./bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node bin/cli.js"
   },
   "repository": {
     "type": "git",
